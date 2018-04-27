@@ -1,0 +1,13 @@
+<h2>Show Placa mercosul</h2>
+
+<ul>
+
+  <li>
+    <strong>Placa mercosul:</strong>
+    <%= @placa_mercosul.placa_mercosul %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: placa_mercosul_path(@conn, :edit, @placa_mercosul) %></span>
+<span><%= link "Back", to: placa_mercosul_path(@conn, :index) %></span>

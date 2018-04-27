@@ -1,0 +1,26 @@
+<h2>Listing Placamercosul</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Placa mercosul</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for placa_mercosul <- @placamercosul do %>
+    <tr>
+      <td><%= placa_mercosul.placa_mercosul %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: placa_mercosul_path(@conn, :show, placa_mercosul), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: placa_mercosul_path(@conn, :edit, placa_mercosul), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: placa_mercosul_path(@conn, :delete, placa_mercosul), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Placa mercosul", to: placa_mercosul_path(@conn, :new) %></span>

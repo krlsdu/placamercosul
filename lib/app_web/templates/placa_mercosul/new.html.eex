@@ -1,0 +1,5 @@
+<h2>New Placa mercosul</h2>
+
+<%= render "form.html", Map.put(assigns, :action, placa_mercosul_path(@conn, :create)) %>
+
+<span><%= link "Back", to: placa_mercosul_path(@conn, :index) %></span>
