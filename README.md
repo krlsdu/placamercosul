@@ -22,7 +22,9 @@ exit
 nanobox run mix phx.server
 nanobox dns add local phoenix.local
 ```
-Visit your app at phoenix.local:4000/placamercosul
+Visit your app at 
+
+[phoenix.local:4000/placamercosul](phoenix.local:4000/placamercosul)
 
 
 See deployment for notes on how to deploy the project on a live system.
