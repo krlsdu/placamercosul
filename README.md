@@ -33,11 +33,21 @@ See deployment for notes on how to deploy the project on a live system.
 
 What things you need to install the software and how to install them
 
-```
-Give examples
-```
+If you use [nanobox](https://guides.nanobox.io/elixir/phoenix/from-scratch/)
+all step in getting start is enougth, with you wish DIY, this is the list you need install
+
+[elixir ~> 1.5.3](https://elixir-lang.org/install.html)
+
+[npm ~> 5.6.0](https://github.com/creationix/nvm#installation)
+
+[phoenix framework ~> 1.3.2](https://hexdocs.pm/phoenix/installation.html#content)
+
+[postgres ~> 10.3](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
+
 
 ### Installing
+
+I insist use [nanobox](https://guides.nanobox.io/elixir/phoenix/from-scratch/).
 
 A step by step series of examples that tell you have to get a development env running
 
@@ -59,20 +69,27 @@ End with an example of getting some data out of the system or using it for a lit
 
 Explain how to run the automated tests for this system
 
+In project folder
+
+```
+mix test
+```
+
 ### Break down into end to end tests
 
 Explain what these tests test and why
 
 ```
-Give an example
+All test control,model,view
 ```
 
-### And coding style tests
+### Coding style
 
-Explain what these tests test and why
+
+All elixir up version 1.5 have a tool to apply code style format default from the language run the command in project folder
 
 ```
-Give an example
+mix format
 ```
 
 ## Deployment
