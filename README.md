@@ -15,6 +15,7 @@ nanobox run
 cd assets && npm install
 cd /app
 mix ecto.create
+mix ecto.migrate
 mix deps.get
 
 exit
@@ -22,9 +23,8 @@ exit
 nanobox run mix phx.server
 nanobox dns add local phoenix.local
 ```
-Visit your app at 
+Visit your app at <a href="http://phoenix.local:4000" target="\_blank">phoenix.local:4000</a>
 
-[phoenix.local:4000/placamercosul](phoenix.local:4000/placamercosul)
 
 
 See deployment for notes on how to deploy the project on a live system.
