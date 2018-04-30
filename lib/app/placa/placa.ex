@@ -122,12 +122,9 @@ defmodule App.Placa do
     placa_antiga = String.at(placa, 4)
 
     placa_convertida =
-      String.replace(
-        placa,
-        placa_antiga,
-        placa_nova.(placa_antiga),
-        insert_replaced: 4
-      )
+      String.codepoints(placa)
+      |> List.replace_at(4, placa_nova.(placa_antiga))
+      |> to_string
 
     %{"placa_mercosul" => placa_convertida}
   end
