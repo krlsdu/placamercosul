@@ -126,7 +126,7 @@ defmodule App.Placa do
         placa,
         placa_antiga,
         placa_nova.(placa_antiga),
-        insert_replacede: 4
+        insert_replaced: 4
       )
 
     %{"placa_mercosul" => placa_convertida}
