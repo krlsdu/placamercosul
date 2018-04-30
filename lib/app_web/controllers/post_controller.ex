@@ -1,3 +1,5 @@
+require IEx
+
 defmodule AppWeb.PostController do
   use AppWeb, :controller
 
@@ -15,11 +17,14 @@ defmodule AppWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
+    post_params = Blog.ovni(post_params)
+
     case Blog.create_post(post_params) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: post_path(conn, :show, post))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -44,6 +49,7 @@ defmodule AppWeb.PostController do
         conn
         |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: post_path(conn, :show, post))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset)
     end

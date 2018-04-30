@@ -12,6 +12,11 @@
     <%= @post.word_count %>
   </li>
 
+  <li>
+    <strong>Ovni:</strong>
+    <%= @post.ovni %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: post_path(@conn, :edit, @post) %></span>

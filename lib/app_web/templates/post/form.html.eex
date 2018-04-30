@@ -18,6 +18,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :ovni, class: "control-label" %>
+    <%= checkbox f, :ovni, class: "checkbox" %>
+    <%= error_tag f, :ovni %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

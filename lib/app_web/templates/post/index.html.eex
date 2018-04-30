@@ -5,6 +5,7 @@
     <tr>
       <th>Body</th>
       <th>Word count</th>
+      <th>Ovni</th>
 
       <th></th>
     </tr>
@@ -14,6 +15,7 @@
     <tr>
       <td><%= post.body %></td>
       <td><%= post.word_count %></td>
+      <td><%= post.ovni %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: post_path(@conn, :show, post), class: "btn btn-default btn-xs" %></span>

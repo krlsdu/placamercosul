@@ -5,6 +5,7 @@ defmodule App.Blog.Post do
 
   schema "posts" do
     field :body, :string
+    field :ovni, :boolean, default: false
     field :word_count, :integer
 
     timestamps()
@@ -13,7 +14,7 @@ defmodule App.Blog.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:body, :word_count])
-    |> validate_required([:body, :word_count])
+    |> cast(attrs, [:body, :word_count, :ovni])
+    |> validate_required([:body, :word_count, :ovni])
   end
 end

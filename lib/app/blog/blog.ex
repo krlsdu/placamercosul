@@ -1,3 +1,5 @@
+require IEx
+
 defmodule App.Blog do
   @moduledoc """
   The Blog context.
@@ -100,5 +102,17 @@ defmodule App.Blog do
   """
   def change_post(%Post{} = post) do
     Post.changeset(post, %{})
+  end
+
+  def ovni(attrs \\ %{}) do
+    ovni = Map.fetch!(attrs, "ovni")
+
+    attrs =
+      if ovni == "true" do
+        Map.put(attrs, "body", "ovni")
+      end
+
+    IEx.pry()
+    attrs
   end
 end

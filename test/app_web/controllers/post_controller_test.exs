@@ -3,9 +3,9 @@ defmodule AppWeb.PostControllerTest do
 
   alias App.Blog
 
-  @create_attrs %{body: "some body", word_count: 42}
-  @update_attrs %{body: "some updated body", word_count: 43}
-  @invalid_attrs %{body: nil, word_count: nil}
+  @create_attrs %{body: "some body", ovni: true, word_count: 42}
+  @update_attrs %{body: "some updated body", ovni: false, word_count: 43}
+  @invalid_attrs %{body: nil, ovni: nil, word_count: nil}
 
   def fixture(:post) do
     {:ok, post} = Blog.create_post(@create_attrs)

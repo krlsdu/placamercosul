@@ -118,14 +118,21 @@ defmodule App.Placa do
       "9" -> "J"
     end
 
-    placa = Map.fetch!(placa, "placa_mercosul")
-    placa_antiga = String.at(placa, 4)
+    IEx.pry()
+    moto = Map.fetch!(placa, "placa_mercosul")
 
-    placa_convertida =
-      String.codepoints(placa)
-      |> List.replace_at(4, placa_nova.(placa_antiga))
-      |> to_string
+    if moto == "true" do
+      placa
+    else
+      placa = Map.fetch!(placa, "placa_mercosul")
+      placa_antiga = String.at(placa, 4)
 
-    %{"placa_mercosul" => placa_convertida}
+      placa_convertida =
+        String.codepoints(placa)
+        |> List.replace_at(4, placa_nova.(placa_antiga))
+        |> to_string
+
+      %{"placa_mercosul" => placa_convertida}
+    end
   end
 end
