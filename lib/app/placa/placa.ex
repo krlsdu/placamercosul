@@ -135,4 +135,128 @@ defmodule App.Placa do
       %{"placa_mercosul" => placa_convertida}
     end
   end
+
+  alias App.Placa.Moto
+
+  @doc """
+  Returns the list of placamotos.
+
+  ## Examples
+
+      iex> list_placamotos()
+      [%Moto{}, ...]
+
+  """
+  def list_placamotos do
+    Repo.all(Moto)
+  end
+
+  @doc """
+  Gets a single moto.
+
+  Raises `Ecto.NoResultsError` if the Moto does not exist.
+
+  ## Examples
+
+      iex> get_moto!(123)
+      %Moto{}
+
+      iex> get_moto!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_moto!(id), do: Repo.get!(Moto, id)
+
+  @doc """
+  Creates a moto.
+
+  ## Examples
+
+      iex> create_moto(%{field: value})
+      {:ok, %Moto{}}
+
+      iex> create_moto(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_moto(attrs \\ %{}) do
+    %Moto{}
+    |> Moto.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a moto.
+
+  ## Examples
+
+      iex> update_moto(moto, %{field: new_value})
+      {:ok, %Moto{}}
+
+      iex> update_moto(moto, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_moto(%Moto{} = moto, attrs) do
+    moto
+    |> Moto.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Moto.
+
+  ## Examples
+
+      iex> delete_moto(moto)
+      {:ok, %Moto{}}
+
+      iex> delete_moto(moto)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_moto(%Moto{} = moto) do
+    Repo.delete(moto)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking moto changes.
+
+  ## Examples
+
+      iex> change_moto(moto)
+      %Ecto.Changeset{source: %Moto{}}
+
+  """
+  def change_moto(%Moto{} = moto) do
+    Moto.changeset(moto, %{})
+  end
+
+  def placa_mercosul_moto(moto) do
+    placa_nova = fn
+      "0" -> "A"
+      "1" -> "B"
+      "2" -> "C"
+      "3" -> "D"
+      "4" -> "E"
+      "5" -> "F"
+      "6" -> "G"
+      "7" -> "H"
+      "8" -> "I"
+      "9" -> "J"
+    end
+
+    IEx.pry()
+
+    moto = Map.fetch!(moto, "placa_motos")
+
+    placa_antiga = String.at(moto, 5)
+
+    placa_convertida =
+      String.codepoints(moto)
+      |> List.replace_at(5, placa_nova.(placa_antiga))
+      |> to_string
+
+    %{"placa_motos" => placa_convertida}
+  end
 end

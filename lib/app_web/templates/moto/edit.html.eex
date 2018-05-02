@@ -1,0 +1,5 @@
+<h2>Edit Moto</h2>
+
+<%= render "form.html", Map.put(assigns, :action, moto_path(@conn, :update, @moto)) %>
+
+<span><%= link "Back", to: moto_path(@conn, :index) %></span>

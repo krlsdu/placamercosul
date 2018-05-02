@@ -1,0 +1,26 @@
+<h2>Listing Placamotos</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Placa motos</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for moto <- @placamotos do %>
+    <tr>
+      <td><%= moto.placa_motos %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: moto_path(@conn, :show, moto), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: moto_path(@conn, :edit, moto), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: moto_path(@conn, :delete, moto), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Moto", to: moto_path(@conn, :new) %></span>

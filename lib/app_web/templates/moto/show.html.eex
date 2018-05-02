@@ -1,0 +1,13 @@
+<h2>Show Moto</h2>
+
+<ul>
+
+  <li>
+    <strong>Placa motos:</strong>
+    <%= @moto.placa_motos %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: moto_path(@conn, :edit, @moto) %></span>
+<span><%= link "Back", to: moto_path(@conn, :index) %></span>

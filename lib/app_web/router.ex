@@ -20,6 +20,7 @@ defmodule AppWeb.Router do
     get("/", PageController, :index)
     resources("/posts", PostController)
     resources("/placamercosul", PlacaMercosulController)
+    resources("/placamotos", MotoController)
   end
 
   # Other scopes may use custom stacks.
